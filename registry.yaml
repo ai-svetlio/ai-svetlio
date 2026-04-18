@@ -1,0 +1,423 @@
+# ============================================================================
+# Svet_AI - Registry
+# Каталог на всички инструменти
+# ============================================================================
+
+version: "1.0.0"
+lastUpdated: "2026-01-31"
+
+# ============================================================================
+# КАТЕГОРИИ
+# ============================================================================
+
+categories:
+  mcp-creators:
+    name: "MCP Server Creators"
+    description: "Инструменти за СЪЗДАВАНЕ на MCP сървъри"
+    icon: "🏭"
+    warning: "Тези инструменти създават код. Винаги преглеждай генерирания код."
+  
+  mcp:
+    name: "MCP Servers"
+    description: "Готови MCP сървъри за използване"
+    icon: "🔌"
+  
+  agents:
+    name: "Agent Frameworks"
+    description: "Frameworks за multi-agent системи"
+    icon: "🤖"
+  
+  skills:
+    name: "Skills & Rules"
+    description: "Skills и правила за AI IDE-та"
+    icon: "🎯"
+  
+  cli:
+    name: "CLI Tools"
+    description: "Command-line инструменти"
+    icon: "⌨️"
+  
+  libraries:
+    name: "Libraries"
+    description: "Библиотеки и SDKs"
+    icon: "📚"
+
+# ============================================================================
+# ИНСТРУМЕНТИ
+# ============================================================================
+
+tools:
+  # --------------------------------------------------------------------------
+  # MCP SERVER CREATORS
+  # --------------------------------------------------------------------------
+  
+  fastmcp:
+    name: "FastMCP"
+    category: mcp-creators
+    priority: 1
+    description: "Python framework за MCP сървъри. Production-ready, пълен контрол."
+    source: "https://github.com/jlowin/fastmcp"
+    docs: "https://gofastmcp.com/"
+    install:
+      pip: "pip install fastmcp"
+    language: python
+    trustLevel: high
+    productionReady: true
+    
+    whatItDoes: |
+      FastMCP е Python framework за създаване на MCP сървъри чрез прости
+      декоратори. Пишеш Python функции, FastMCP ги превръща в MCP tools.
+    
+    example: |
+      from fastmcp import FastMCP
+      
+      mcp = FastMCP("My Server")
+      
+      @mcp.tool()
+      def get_weather(city: str) -> dict:
+          return {"city": city, "temp": 22}
+      
+      if __name__ == "__main__":
+          mcp.run()
+    
+    bestFor:
+      - "Production-ready MCP сървъри"
+      - "Custom business логика"
+      - "Python developers"
+    
+    notFor:
+      - "Ако не познаваш Python"
+      - "Ако искаш автоматично от OpenAPI"
+    
+    rating: 5
+
+  generator-mcp:
+    name: "generator-mcp (Yeoman)"
+    category: mcp-creators
+    priority: 2
+    description: "Yeoman generator за Node.js MCP сървъри с VS Code debugging."
+    source: "https://github.com/formulahendry/generator-mcp"
+    install:
+      npm: "npm install -g yo generator-mcp"
+      run: "yo mcp"
+    language: nodejs
+    trustLevel: high
+    productionReady: true
+    
+    whatItDoes: |
+      Създава начална структура (scaffold) за Node.js MCP сървър.
+      Включва VS Code debugging конфигурация.
+    
+    bestFor:
+      - "Node.js/TypeScript developers"
+      - "Бърз старт с готова структура"
+      - "VS Code debugging"
+    
+    notFor:
+      - "Ако предпочиташ Python"
+    
+    rating: 4
+
+  openapi-to-mcpserver:
+    name: "openapi-to-mcpserver"
+    category: mcp-creators
+    priority: 3
+    description: "Конвертира OpenAPI spec в MCP сървър. ⚠️ Внимание при употреба."
+    source: "https://github.com/anthropics/openapi-to-mcpserver"
+    install:
+      npm: "npm install -g openapi-to-mcpserver"
+    language: nodejs
+    trustLevel: medium
+    productionReady: true
+    
+    warnings:
+      - "ВСИЧКИ endpoints стават MCP tools"
+      - "Прегледай генерирания код преди deploy"
+      - "Конфигурирай authentication правилно"
+    
+    bestFor:
+      - "Съществуващи REST APIs с OpenAPI spec"
+      - "Много endpoints"
+    
+    notFor:
+      - "Ако нямаш OpenAPI spec"
+      - "Ако API-то има sensitive endpoints"
+    
+    rating: 3
+
+  # --------------------------------------------------------------------------
+  # MCP SERVERS
+  # --------------------------------------------------------------------------
+  
+  mcp-github:
+    name: "MCP GitHub"
+    category: mcp
+    description: "GitHub интеграция - repos, issues, PRs, code search"
+    source: "https://github.com/modelcontextprotocol/servers"
+    install:
+      npx: "npx @modelcontextprotocol/server-github"
+    trustLevel: high
+    official: true
+    
+    tools:
+      - "create_repository"
+      - "search_repositories"
+      - "get_file_contents"
+      - "create_issue"
+      - "create_pull_request"
+
+  mcp-postgres:
+    name: "MCP PostgreSQL"
+    category: mcp
+    description: "PostgreSQL операции - заявки, схема, данни"
+    source: "https://github.com/modelcontextprotocol/servers"
+    install:
+      npx: "npx @modelcontextprotocol/server-postgres"
+    trustLevel: high
+    official: true
+
+  mcp-notion:
+    name: "MCP Notion"
+    category: mcp
+    description: "Notion интеграция - страници, бази данни, съдържание"
+    source: "https://github.com/modelcontextprotocol/servers"
+    install:
+      npx: "npx @modelcontextprotocol/server-notion"
+    trustLevel: high
+    official: true
+
+  mcp-firecrawl:
+    name: "MCP Firecrawl"
+    category: mcp
+    description: "Web scraping с JavaScript rendering"
+    source: "https://github.com/anthropics/mcp-server-firecrawl"
+    install:
+      npx: "npx @anthropics/mcp-server-firecrawl"
+    trustLevel: medium
+
+  mcp-browserbase:
+    name: "MCP Browserbase"
+    category: mcp
+    description: "Browser automation в облака"
+    source: "https://github.com/browserbase/mcp-server"
+    trustLevel: medium
+
+  mcp-figma:
+    name: "MCP Figma"
+    category: mcp
+    description: "Figma интеграция - design to code"
+    trustLevel: medium
+
+  # --------------------------------------------------------------------------
+  # AGENT FRAMEWORKS
+  # --------------------------------------------------------------------------
+  
+  crewai:
+    name: "CrewAI"
+    category: agents
+    description: "Multi-agent framework с роли. 32k+ GitHub stars."
+    source: "https://github.com/joaomdmoura/crewAI"
+    docs: "https://docs.crewai.com/"
+    install:
+      pip: "pip install crewai"
+    trustLevel: high
+    productionReady: true
+    stars: "32000+"
+    
+    example: |
+      from crewai import Agent, Task, Crew
+      
+      researcher = Agent(
+          role="Researcher",
+          goal="Find information",
+          backstory="Expert researcher"
+      )
+      
+      task = Task(
+          description="Research AI trends",
+          agent=researcher
+      )
+      
+      crew = Crew(agents=[researcher], tasks=[task])
+      result = crew.kickoff()
+
+  langchain:
+    name: "LangChain"
+    category: agents
+    description: "Comprehensive LLM framework за RAG и workflows"
+    source: "https://github.com/langchain-ai/langchain"
+    docs: "https://python.langchain.com/"
+    install:
+      pip: "pip install langchain langgraph"
+    trustLevel: high
+    productionReady: true
+
+  autogen:
+    name: "AutoGen"
+    category: agents
+    description: "Microsoft enterprise-grade multi-agent framework"
+    source: "https://github.com/microsoft/autogen"
+    install:
+      pip: "pip install autogen"
+    trustLevel: high
+    productionReady: true
+    enterprise: true
+
+  autogpt:
+    name: "AutoGPT"
+    category: agents
+    description: "Autonomous AI agent. 167k+ GitHub stars."
+    source: "https://github.com/Significant-Gravitas/AutoGPT"
+    trustLevel: high
+    stars: "167000+"
+
+  # --------------------------------------------------------------------------
+  # SKILLS & RULES
+  # --------------------------------------------------------------------------
+  
+  antigravity-awesome-skills:
+    name: "Antigravity Awesome Skills"
+    category: skills
+    description: "625+ agentic skills за Cursor/Claude Code/Antigravity"
+    source: "https://github.com/sickn33/antigravity-awesome-skills"
+    install:
+      npx: "npx antigravity-awesome-skills --cursor"
+    trustLevel: medium
+    
+    variants:
+      cursor: "npx antigravity-awesome-skills --cursor"
+      claude: "npx antigravity-awesome-skills --claude"
+      antigravity: "npx antigravity-awesome-skills --antigravity"
+
+  awesome-cursorrules:
+    name: "awesome-cursorrules"
+    category: skills
+    description: "Най-голямата колекция от .cursorrules файлове"
+    source: "https://github.com/PatrickJS/awesome-cursorrules"
+    trustLevel: medium
+
+  sparesparrow-cursor-rules:
+    name: "sparesparrow-cursor-rules"
+    category: skills
+    description: "Agentic patterns, TypeScript, security rules"
+    source: "https://github.com/sparesparrow/cursor-rules"
+    trustLevel: medium
+
+  ivangrynenko-cursorrules:
+    name: "ivangrynenko-cursorrules"
+    category: skills
+    description: "PHP, Python, JavaScript + OWASP Top 10 security"
+    source: "https://github.com/ivangrynenko/cursorrules"
+    trustLevel: medium
+    focus: security
+
+  # --------------------------------------------------------------------------
+  # CLI TOOLS
+  # --------------------------------------------------------------------------
+  
+  vibe-tools:
+    name: "vibe-tools"
+    category: cli
+    description: "Codebase анализ (Gemini), web търсене (Perplexity)"
+    source: "https://github.com/eastlondoner/vibe-tools"
+    install:
+      npm: "npm install -g vibe-tools && vibe-tools install"
+    trustLevel: medium
+    
+    commands:
+      - "vibe-tools repo  - Codebase анализ"
+      - "vibe-tools web   - Web търсене"
+      - "vibe-tools browser - Browser automation"
+
+  ralph-loop:
+    name: "Ralph Loop"
+    category: cli
+    description: "Infinite loop с fresh context за автономно кодене"
+    source: "VS Code Extension: Ralph Loop for Antigravity"
+    trustLevel: medium
+    
+    philosophy: |
+      "State lives in files and git, not in LLM's memory"
+      Работи най-добре с Cursor Ultra/Max plans.
+
+  # --------------------------------------------------------------------------
+  # LIBRARIES
+  # --------------------------------------------------------------------------
+  
+  cursor-agent:
+    name: "cursor-agent"
+    category: libraries
+    description: "Python библиотека за Cursor-like capabilities с различни LLMs"
+    source: "https://github.com/civai-technologies/cursor-agent"
+    install:
+      pip: "pip install cursor-agent-tools"
+    trustLevel: medium
+
+# ============================================================================
+# DOMAIN MAPPING
+# ============================================================================
+
+domainMapping:
+  mcp-creation:
+    description: "Създаване на MCP сървъри"
+    recommended:
+      - fastmcp
+      - generator-mcp
+      - openapi-to-mcpserver
+    decisionTree: |
+      Python? → fastmcp
+      Node.js? → generator-mcp
+      Имаш OpenAPI? → openapi-to-mcpserver (внимание!)
+
+  backend:
+    description: "Backend development"
+    recommended:
+      - fastmcp
+      - mcp-postgres
+      - langchain
+
+  frontend:
+    description: "Frontend development"
+    recommended:
+      - antigravity-awesome-skills
+      - awesome-cursorrules
+
+  ai-agents:
+    description: "AI agent системи"
+    recommended:
+      - crewai
+      - langchain
+      - autogen
+
+  autonomous:
+    description: "Автономно кодене"
+    recommended:
+      - ralph-loop
+      - vibe-tools
+      - autogpt
+
+  security:
+    description: "Security-focused development"
+    recommended:
+      - ivangrynenko-cursorrules
+      - sparesparrow-cursor-rules
+
+# ============================================================================
+# HUBS
+# ============================================================================
+
+hubs:
+  cursor-directory:
+    name: "Cursor Directory"
+    url: "https://cursor.directory"
+    description: "Rules + MCPs + Jobs + Community"
+
+  mcp-market:
+    name: "MCP Market"
+    url: "https://mcpmarket.com"
+    description: "1500+ MCP servers"
+
+  antigravity-codes:
+    name: "Antigravity Codes"
+    url: "https://antigravity.codes"
+    description: "1500+ MCPs, 500+ rules, workflows"

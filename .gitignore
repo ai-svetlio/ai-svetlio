@@ -1,0 +1,42 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local
+
+# Test coverage
+coverage/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Local project data (not for git)
+.requests/
+nul
+
+# AI_Svetlio — IRON RULE 22 (D28/D29): dev memory не в public git
+# Dev memory live в private hub (hub-dev, D30) — достъпно през `svetlio sync`
+# Историческият v1.5.7 snapshot е запазен в tag v1.5.7-memory-snapshot
+.memory/
+
+# Prototype client data (contains real emails/docs)
+documents/doc_prototype/

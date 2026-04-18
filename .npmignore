@@ -1,0 +1,57 @@
+# Source files (dist/ is enough)
+src/
+*.ts
+!dist/**/*.ts
+
+# Development files
+tsconfig.json
+.gitignore
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local
+
+# Test
+coverage/
+*.tmp
+*.temp
+
+# Project memory (not needed in npm package)
+.memory/
+.antigravity/
+.cursorrules
+CLAUDE.md
+.requests/
+
+# Archived/historical documents (not needed in npm package)
+documents/archive/
+documents/doc_prototype/
+
+# Large files - PDFs
+*.pdf
+
+# Misc
+nul
+
+# Keep only essential files:
+# - dist/ (compiled code)
+# - package.json
+# - README.md
+# - QUICKREF.md
+# - documents/IRON_RULES.md, USER_GUIDE.md, REFRESH_REMINDER.md
+# - templates/ (request templates)
+# - registry.yaml

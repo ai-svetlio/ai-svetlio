@@ -1,0 +1,12 @@
+{
+  "version": "1.0",
+  "categories": ["Функционалност", "Промяна", "Корекция", "Въпрос", "Друго"],
+  "priorities": ["Критичен", "Висок", "Среден", "Нисък"],
+  "statuses": ["Нова", "Анализирана", "В изпълнение", "Отложена", "Завършена", "Отказана"],
+  "defaultAssignee": "AI Agent",
+  "idFormat": "CR-{year}-{seq:3}",
+  "python": {
+    "enabled": true,
+    "supportedFormats": ["eml", "msg", "docx", "doc", "xlsx", "xls", "rtf", "odt", "pdf", "txt", "md"]
+  }
+}

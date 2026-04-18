@@ -15,7 +15,7 @@ import inquirer from 'inquirer';
 import { glob } from 'glob';
 import { Memory } from './memory';
 
-const VERSION = '2.0.0';
+const VERSION = '2.0.1';
 
 export class Modes {
   private projectDir: string;

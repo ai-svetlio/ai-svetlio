@@ -1,6 +1,6 @@
 {
   "name": "ai-svetlio",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Universal AI Agent Toolkit & Project Memory with Hub Sync — памет, режими и синхронизация между машини",
   "main": "dist/cli.js",
   "bin": {

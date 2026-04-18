@@ -29,7 +29,7 @@ import { WebViewer } from './web';
 import { RequestsManager } from './requests';
 import { SyncManager } from './sync';
 
-const VERSION = '2.0.0';
+const VERSION = '2.0.1';
 
 // ============================================================================
 // BANNER
@@ -546,6 +546,14 @@ program
       const projectName = path.basename(projectDir);
       await requests.initialize(projectName);
       console.log(chalk.green(`\n   📋 Създадена .requests/ папка (нова във v1.5.0)`));
+    }
+
+    // 9. Enforcement на IRON RULE 22: .memory/ в .gitignore (добавено във v2.0.1+)
+    const gitignoreResult = await ensureGitignoreProtectsMemory(projectDir);
+    if (gitignoreResult === 'created') {
+      console.log(chalk.green(`\n   🔒 Създаден .gitignore с .memory/ защита (IRON RULE 22)`));
+    } else if (gitignoreResult === 'appended') {
+      console.log(chalk.green(`\n   🔒 Добавена .memory/ защита в .gitignore (IRON RULE 22)`));
     }
 
     console.log(chalk.green(`\n✅ Обновено от v${currentVersion} → v${VERSION}`));

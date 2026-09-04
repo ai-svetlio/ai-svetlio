@@ -1,6 +1,6 @@
 {
   "name": "ai-svetlio",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "Universal AI Agent Toolkit & Project Memory with Hub Sync — памет, режими и синхронизация между машини",
   "main": "dist/cli.js",
   "bin": {
@@ -11,7 +11,9 @@
     "build": "tsc",
     "dev": "ts-node src/cli.ts",
     "test": "jest",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run gen:docs",
+    "gen:docs": "npm run build && node scripts/gen-docs.js"
   },
   "keywords": [
     "ai",

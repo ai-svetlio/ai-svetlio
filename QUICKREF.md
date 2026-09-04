@@ -22,6 +22,24 @@ svetlio registry <query>   # Търси в MCP Registry
 svetlio mcp-wizard         # Wizard за MCP сървъри
 ```
 
+### Hub Sync — памет между машини
+
+```bash
+svetlio sync init          # Настрой hub repo (веднъж за всички проекти)
+svetlio sync push          # Изпрати .memory/ към hub
+svetlio sync pull          # Изтегли .memory/ от hub
+svetlio sync status        # Състояние на синхронизацията
+svetlio sync auto          # Авто-push при промяна
+svetlio sync remove        # Премахни връзката с hub
+```
+
+### На български
+
+```bash
+svetlio уеб · обнови · заявки
+svetlio синк настройка · изпрати · изтегли · статус · авто · премахни
+```
+
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 ## 🎯 Режими

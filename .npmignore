@@ -35,7 +35,13 @@ coverage/
 .antigravity/
 .cursorrules
 CLAUDE.md
+AGENTS.md
 .requests/
+
+# Източници на генерирането (в пакета пътува само резултатът IRON_RULES.md)
+scripts/
+documents/rules-examples/
+documents/rules-appendix.md
 
 # Archived/historical documents (not needed in npm package)
 documents/archive/
